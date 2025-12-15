@@ -1,13 +1,13 @@
-<?php 
+<?php
 require "../config.php";
 ?>
 
 <html>
 <body>
 
-<h2>View Teacher</h2>
+<h2>View pupil</h2>
 <?php
-$query = "SELECT * FROM Teacher";
+$query = "SELECT * FROM Pupil";
 $result = mysqli_query($conn, $query);
 
 if(!$result){
@@ -16,30 +16,28 @@ if(!$result){
 }
 
 if(mysqli_num_rows($result)==0){
-    echo "No teachers found";
+    echo "No pupil found";
 } else{
     echo "<table border='1'>";
     echo "<tr>";
-    echo "<th>Teacher ID</th>";
+    echo "<th>pupil ID</th>";
     echo "<th>Name</th>";
     echo "<th>Age</th>";
     echo "<th>Address</th>";
-    echo "<th>Phone Number</th>";
-    echo "<th>Email</th>";
-    echo "<th>Salary</th>";
-    echo "<th>Background Check</th>";
+    echo "<th>medical_info</th>";
+    echo "<th>freeschoolmeals</th>";
     echo "</tr>";
 
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr>";
-        echo "<td>". $row["teacher_id"]."</td>";
+        echo "<td>". $row["pupil_id"]."</td>";
         echo "<td>". $row["name"]."</td>";
         echo "<td>". $row["age"]."</td>";
         echo "<td>". $row["address"]."</td>";
-        echo "<td>". $row["phone_number"]."</td>";
-        echo "<td>". $row["email"]."</td>";
-        echo "<td>". $row["salary"]."</td>";
-        if($row["background_check"]==1){
+        echo "<td>". $row["medical_info"]."</td>";
+        echo "<td>". $row["freeschoolmeals"]."</td>";
+       
+        if($row["freeshcoolmeals"]==1){
             echo "<td>Yes</td>";
         }
         echo "</tr>";
@@ -49,6 +47,3 @@ if(mysqli_num_rows($result)==0){
 
 }
 ?>
-
-</body>
-</html>

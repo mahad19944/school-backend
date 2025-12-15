@@ -41,8 +41,6 @@ if(mysqli_num_rows($result)==0){
         echo "<td>". $row["salary"]."</td>";
         if($row["background_check"]==1){
             echo "<td>Yes</td>";
-        } else{
-            echo "<td>No</td>";
         }
         echo "</tr>";
 
