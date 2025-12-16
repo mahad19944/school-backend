@@ -26,6 +26,8 @@ if(mysqli_num_rows($result)==0){
     echo "<th>release_date</th>";
     echo "<th>return_date</th>";
     echo "<th>Pupil_id</th>";
+    echo "<th>Actions</th>";
+    echo "<th>Delete</th>";
     echo "</tr>";
 
     while ($row = mysqli_fetch_array($result)) {
@@ -35,6 +37,8 @@ if(mysqli_num_rows($result)==0){
         echo "<td>". $row["release_date"]."</td>";
         echo "<td>". $row["return_date"]."</td>";
         echo "<td>". $row["pupil_id"]."</td>";
+        echo "<td><a href='edit.php?id=" .$row["library_book_id"]. "'>Edit</a></td>";
+        echo "<td><a href='delete.php?id=" .$row["library_book_id"]. "'>Delete</a></td>";
         echo "</tr>";
     }
     echo "</table>";

@@ -26,6 +26,8 @@ if(mysqli_num_rows($result)==0){
     echo "<th>Address</th>";
     echo "<th>medical_info</th>";
     echo "<th>freeschoolmeals</th>";
+    echo "<th>Actions</th>";
+    echo "<th>Delete</th>";
     echo "</tr>";
 
     while ($row = mysqli_fetch_array($result)) {
@@ -35,11 +37,13 @@ if(mysqli_num_rows($result)==0){
         echo "<td>". $row["age"]."</td>";
         echo "<td>". $row["address"]."</td>";
         echo "<td>". $row["medical_info"]."</td>";
-        echo "<td>". $row["freeschoolmeals"]."</td>";
-       
-        if($row["freeshcoolmeals"]==1){
+        if($row["free_school_meals"]==1){
             echo "<td>Yes</td>";
+        } else{
+            echo "<td>No</td>";
         }
+        echo "<td><a href='edit.php?id=" .$row["pupil_id"]. "'>Edit</a></td>";
+        echo "<td><a href='delete.php?id=" .$row["pupil_id"]. "'>Delete</a></td>";
         echo "</tr>";
 
     }

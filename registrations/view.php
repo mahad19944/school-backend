@@ -27,6 +27,10 @@ if(mysqli_num_rows($result)==0){
     echo "<th>reason</th>";
     echo "<th>class_id</th>";
     echo "<th>pupil_id</th>";
+    echo "<th>Actions</th>";
+    echo "<th>Delete</th>";
+    echo "</tr>";
+
 
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr>";
@@ -37,6 +41,8 @@ if(mysqli_num_rows($result)==0){
         echo "<td>". $row["reason"]."</td>";
         echo "<td>". $row["class_id"]."</td>";
         echo "<td>". $row["pupil_id"]."</td>";
+        echo "<td><a href='edit.php?id=" .$row["registration_id"]. "'>Edit</a></td>";
+        echo "<td><a href='delete.php?id=" .$row["registration_id"]. "'>Delete</a></td>";
         echo "</tr>";
 
     }

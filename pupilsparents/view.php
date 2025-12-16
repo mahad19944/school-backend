@@ -22,6 +22,8 @@ if(mysqli_num_rows($result)==0){
     echo "<tr>";
     echo "<th>Pupil ID</th>";
     echo "<th>Parent ID</th>";
+    echo "<th>Actions</th>";
+    echo "<th>Delete</th>";
     echo "</tr>";
 
     while ($row = mysqli_fetch_array($result)) {

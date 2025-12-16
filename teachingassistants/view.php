@@ -28,10 +28,12 @@ if(mysqli_num_rows($result)==0){
     echo "<th>Email</th>";
     echo "<th>Salary</th>";
     echo "<th>Background Check</th>";
+    echo "<th>Actions</th>";
+    echo "<th>Delete</th>";
     echo "</tr>";
 
     while($row = mysqli_fetch_array($result)){
-         echo "<tr>";
+        echo "<tr>";
         echo "<td>". $row["teaching_assistant_id"]."</td>";
         echo "<td>". $row["name"]."</td>";
         echo "<td>". $row["age"]."</td>";
@@ -41,7 +43,11 @@ if(mysqli_num_rows($result)==0){
         echo "<td>". $row["salary"]."</td>";
         if($row["background_check"]==1){
             echo "<td>Yes</td>";
+        }  else{
+             echo "<td>No</td>";
         }
+        echo "<td><a href='edit.php?id=" .$row["teaching_assistant_id"]. "'>Edit</a></td>";
+        echo "<td><a href='delete.php?id=" .$row["teaching_assistant_id"]. "'>Delete</a></td>";
         echo "</tr>";
 
     }
